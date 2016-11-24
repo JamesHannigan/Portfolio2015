@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hannigan Projects - Home</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+    <style>
+    
+#content #portTable{
+    width: 90%;
+    width: 76vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content #portTable td{
+    text-align: center;
+}
+
+#content #portTable img{
+    width: 25vw;
+}
+
+#content #portTable .projName{
+    font-size: 1.85vw;
+}
+
+#content #portTable .projType{
+    font-size: 1.55vw;
+    font-style: italic;
+}
+
+#content #portTable .projDesc{
+    font-size: 1.12vw;
+}
+
+#content #portTable .projButton{
+    font-size: 1.12vw;
+    text-decoration: underline;
+}
+
+#content #projectTable{
+    background-color: red;
+}
+
+#proj1Desc{
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 30px;
+    width: 100%   
+}
+    </style>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="home.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()">  Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <h1 id="logo">Hannigan Projects</h1>
+    <p id="tagline">Plan, Design, Build</p>    
+   <!-- <p id="demo"></p>
+<!--Page Content-->
+    <div id="content">
+  <h2>Portfolio</h2>  
+        <table id="portTable">
+            <tr class="projImg">
+                <td><img src="Images/projImg1.png"></td>
+                <td><img src="Images/projImg1.png"></td>
+                <td><img src="Images/projImg1.png"</td>
+            </tr>
+            <tr class="projName">
+                <td>Personal Website</td>
+                <td>ProjectName2</td>
+                <td>ProjectName3</td>
+            </tr>
+            <tr class="projType">
+                <td>web development and design</td>
+                <td>ProjectType2</td>
+                <td>ProjectType3</td>
+            </tr>
+            <tr class="projDesc">
+                <td>A website to promote my expertise</td>
+                <td>ProjectDescription2</td>
+                <td>Projectdescription3</td>
+            </tr>
+            <tr class="projButton">
+                <td><a href="home.html">View</a></td>
+                <td>ViewButton2</td>
+                <td>ViewButton3</td>
+            </tr>
+            <tr id="portGap"><td colspan="3" style="height: 20px;"></td></tr>
+            <tr class="projImg">
+                <td>Photo4</td>
+                <td>Photo5</td>
+                <td>Photo6</td>
+            </tr>
+            <tr class="projName">
+                <td>ProjectName4</td>
+                <td>ProjectName5</td>
+                <td>ProjectName6</td>
+            </tr>
+            <tr class="projType">
+                <td>ProjectDescription4</td>
+                <td>ProjectDescription5</td>
+                <td>Projectdescription6</td>
+            </tr>
+            <tr class="projDesc">
+                <td>ProjectType4</td>
+                <td>ProjectType5</td>
+                <td>ProjectType6</td>
+            </tr>
+            <tr class="projButton">
+                <td>ViewButton4</td>
+                <td>ViewButton5</td>
+                <td>ViewButton6</td>
+            </tr>
+        </table>
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/rome3.png"
+</div>
+    </div>
+
+</body>
+</html>

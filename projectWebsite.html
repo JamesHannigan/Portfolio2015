@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematics Quiz - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="home.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <h1 id="logo">Hannigan Projects</h1>
+    <p id="tagline">Plan, Design, Build</p>
+    
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <a href="home.html"><img id="projPic" src="Images/Project/HanniganProjects.png"></a></td>
+        <td id="title">Personal Website</td></tr>
+            <tr><td id="type">Web development and design</td></tr>
+            <tr><td id="desc">I have created this website for two reasons. I created this website to publicly share the projects which I have created, as an attempt to promote my work and expertise. Due to the website only needing limited capability, there was only need for me to use three programming languages (HTML, CSS and JavaScript). Every detail of this website has been written by me. You can view the source code on any page by pressing 'Control+U' (Windows) or 'cmd+alt+U'(Mac) depending on your browser.</td></tr>
+            <tr><td id="action"><a href="home.html"><button id="actionButton">View Website</button></a></td></tr>
+        </table>
+    </div>
+    
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

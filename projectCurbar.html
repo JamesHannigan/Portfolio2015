@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hannigan Projects - Home</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="home.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <h1 id="logo">Hannigan Projects</h1>
+    <p id="tagline">Plan, Design, Build</p>
+    
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <iframe style="width:40vw; height: 25vw; margin-top:0px;" src="https://www.youtube.com/embed/stTNMAphct8" frameborder="0" allowfullscreen></iframe></td>
+        <td id="title">The Curbar</td></tr>
+            <tr><td id="type">Promotional Video</td></tr>
+            <tr><td id="desc">This is a low budget video to promote 'The Curbar'. The Curbar is a product which I had to make usable for one of my university assignments. This video is the final product of one of my assignments. I directed and edited this video alongside a partner in my group. I took on a lot of the responsibility of this assignment as film making is a passion of mine and I enjoyed every stage of the production.</td>
+</tr>
+            <tr><td id="action"><button id="actionButton" onclick="window.open('https://www.youtube.com/watch?v=stTNMAphct8','_blank');">Watch on Youtube</button></td></tr>
+        </table>
+    </div>
+    
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

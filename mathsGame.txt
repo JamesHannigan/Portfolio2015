@@ -1,0 +1,778 @@
+
+Each document is separated by a line followed by the title.
+
+___________________________________________________The README.TXT File
+
+PROJECT TITLE: Mathematics quiz
+PURPOSE OF PROJECT: A game where the user can practise their maths.
+VERSION or DATE: 1.0
+HOW TO START THIS PROJECT: When the game begins, click the ‘Start game’ button.
+AUTHORS: James Hannigan
+USER INSTRUCTIONS: When you have starting the game, you will be presented with a question. 
+Answer the questions with numerical values, then enter your name and submit your score. 
+Then compare your scores with previous players on the scores page.
+
+Components used in GUI:
+JLabel – I have used JLabels on every panel of my game, these have been useful for the 
+       output of my program. By using JLabels I have been easily able to inform the user 
+       of information.
+JTextField – The JTextField allows the user to enter information. For example, in my program
+       the user submits their answer to the question by entering it into a JTextField.
+JButton – My game revolves around JButtons, the use of these components have made it 
+        possible to retrieve and send information as well as navigate through the panels on 
+        the frame.
+JMenuBar – This component has allowed me to add JMenu components. This makes it possible to 
+        add buttons to the top of the frame which allows the user to select more 
+        information/commands.
+JMenu – The JMenu adds a dropdown menu on the JMenuBar which groups the items which are 
+        added. Therefore, under options I have added similar items so it keeps it relevant.
+JMenuItem – The JMenuItem is used in my program to act like a button, once selected a listener
+        calls a method which does something within the program.
+
+Layouts
+CardLayout – I have used a CardLayout on my main JPanel, this allows me to add other panels to 
+        the CardLayout. The CardLayout shows and hides different JPanels therefore I have my 
+        panels representing pages on my game.
+GridLayout – The use of the GirdLayout allows me to list items in a panel by adding them and 
+        sorting them into one line. Therefore, a chronological order is presented on the frame.
+BorderLayout – I have used BorderLayouts to help me assign different components like JLabels to 
+        different parts of the panels on a frame. Therefore, the user can easily differentiate 
+        between different components on the screen.
+
+The game window has a title which is the name of the game, ‘Mathematics Quiz’. I have used a 
+setMinimumSize method on my JFrame so that it is has a limit to the smallest it can be resized; 
+therefore, the GUI still looks appropriate when made smaller. I have included a menu bar which 
+offers buttons to the user no matter which panel the user is on. One button on the JMenuBar 
+restarts the entire game.  Whereas other buttons call a dialog window with some text on it.
+
+A good/appropriate use of components have been used on the JFrame, which also include listeners 
+when relevant. The game runs on the users input which then determines the output for man 
+components in the game. For example, the users answer determines the output of how many questions 
+are correct.
+
+
+___________________________________________________The Main Class
+
+/**
+ * By starting this class the whole application will be built.
+ * This is because a interface class is built.
+ * 
+ * @author (James Hannigan) 
+ * @version (1.0)
+ */
+public class Main
+{
+    /**
+     * Method which builds and starts the interfact for the project.
+     */
+    public static void main(String[] args)
+    {
+        Interface inter1 = new Interface();
+    }
+    
+}
+
+___________________________________________________The Interface Class
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ * The interface class is use in the program to generate a GUI which the user can use. By using different
+ * components I have designed and developed an interface which will be used to run my game.
+ * 
+ * @author (James Hannigan) 
+ * @version (1.0)
+ */
+public class Interface {
+    private JFrame frame;
+    private JMenuBar menubar;
+    private int questionCount;
+    private int playerNo = 0;
+    //Players
+    private Player currentPlayer;
+    private Player player1;
+    private Player player2;
+    private Player player3;
+    private Player player4;
+    private Player player5;
+    //Panels throughout the program
+    private JPanel panelMain;
+    private JPanel panelMenu;
+    private JPanel panelGame;
+    private JPanel panelScore;
+    private JPanel panelInst;
+    //Items on menu panel
+    private CardLayout cl;
+    private JButton instButton;
+    private JButton startButton;
+    private JButton scoresButton;
+    //Items on the Game panel
+    private JLabel questionLabel;
+    private JButton backButton;
+    private JTextField userInput;
+    private JButton submitButton;
+    //Items on summary panel
+    private JPanel panelSumm;
+    private JLabel youScored;
+    private JLabel scoreLabel;
+    private JTextField nameInput;
+    private JButton submitNameButton;
+    //Items on highscore panel
+    private JPanel subPanelScore;
+    private JLabel scoreTitle;
+    private JButton scoreBackButton;
+    private JLabel firstPlayerLabel;
+    private JLabel secondPlayerLabel;
+    private JLabel thirdPlayerLabel;
+    private JLabel fourthPlayerLabel;
+    private JLabel fifthPlayerLabel;
+    //Items on Instructions panel
+    private JLabel instTitle;
+    private JLabel stepOne;
+    private JLabel stepTwo;
+    private JLabel stepThree;
+    private JButton instBack;
+
+    /**
+     * The constructor calls two methods within the interface class.
+     */
+    public Interface()
+    {
+        createPlayers();
+        makeFrame();
+    }
+
+    /**
+     * This method is used to create player ob jects, so that multiple players can play the game.
+     */
+    private void createPlayers()
+    {
+        player1 = new Player();
+        player2 = new Player();
+        player3 = new Player();
+        player4 = new Player();
+        player5 = new Player();
+    }
+
+    /**
+     * This method is used to assign the current player to one of the player objects. Therefore, in this
+     * program the player is referred to as the current player rather than having multiple methods which
+     * are all assigned to different players. The current player is based on the variable playerNo which
+     * counts how many times a game has been completed.
+     * 
+     * @Return A variable called current is returned which includes the player object being used.
+     */
+    private Player getCurrentPlayer()
+    {
+        Player current = null;
+        if(playerNo == 1){
+            current = player1;
+        }
+        else if(playerNo == 2){
+            current = player2;
+        }
+        else if(playerNo == 3){
+            current = player3;
+        }
+        else if(playerNo == 4){
+            current = player4;
+        }
+        else{
+            current = player5;
+        }
+        return current;
+    }
+
+    
+    /**
+     * This method makes the frame of the application. It initialises alot of components and assigns them
+     * to certain places on the main frame. Layouts of panels have been used to position the components 
+     * in a nice way. Listerners have also been used so that if a button is clicked a method will call
+     * something else. Finally the frame is packed and made visiable on the screen.
+     */
+    private void makeFrame()
+    {
+        frame = new JFrame("Mathematics Quiz");
+        frame.setMinimumSize(new Dimension(575, 150));
+        frame.setSize(new Dimension(575, 150));
+        //Toolbar of frame
+        menubar = new JMenuBar();
+        makeMenuBar();
+
+        panelMain = new JPanel();
+        panelMenu = new JPanel();
+        panelGame = new JPanel();
+        panelSumm = new JPanel();
+        panelScore = new JPanel();
+        panelInst = new JPanel();
+
+        cl = new CardLayout();
+        panelMain.setLayout(cl);
+
+        //Items on menu panel
+        instButton = new JButton("Instructions");
+        startButton = new JButton("Start game");
+        scoresButton = new JButton("Scores");
+        instButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        startButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        scoresButton.setFont(new Font("Arial", Font.PLAIN, 20));
+
+        //Items added to the menu panel
+        panelMenu.add(instButton);
+        panelMenu.add(startButton);
+        panelMenu.add(scoresButton);
+        panelMenu.setBackground(Color.BLUE);
+        panelMenu.setLayout(new GridLayout(1,0));
+
+        //Add panels to the main panel (To use the CardLayout)
+        panelMain.add(panelMenu, "1");
+        panelMain.add(panelGame, "2");
+        panelMain.add(panelSumm, "3");
+        panelMain.add(panelScore, "4");
+        panelMain.add(panelInst, "5");
+        //
+        cl.show(panelMain, "1");
+        makeStartGame();
+        makeSummary();
+        makeInstructions();
+
+        instButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    cl.show(panelMain, "5");
+                }
+            });
+
+        startButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    playerNo++;
+                    currentPlayer = getCurrentPlayer();
+                    questionCount = 1;
+                    cl.show(panelMain, "2");
+                    questionLabel.setText("Question " + questionCount + ": " + currentPlayer.getQuestion(questionCount));
+                    userInput.setText("");
+                }
+            });
+
+        scoresButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    makeScoresPanel();
+                    cl.show(panelMain, "4");
+                }
+            });
+
+        frame.add(panelMain);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    /**
+     * This method creates the menu bar at the top of the user interface. Included are buttons which do 
+     * things if pressed. For example, one method restarts the entire program. Other ones display a little
+     * message.
+     */
+    private void makeMenuBar()
+    {
+        frame.setJMenuBar(menubar);
+        JMenu fileMenu = new JMenu("File");
+        menubar.add(fileMenu);
+        JMenuItem restartItem = new JMenuItem("Restart");
+        fileMenu.add(restartItem);
+        restartItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    frame.removeAll();
+                    playerNo = 0;
+                    createPlayers();
+                    makeFrame();
+                }
+            });
+        JMenu optionsMenu = new JMenu("Options");
+        menubar.add(optionsMenu);
+        JMenuItem helpItem = new JMenuItem("Help");
+        JMenuItem aboutItem = new JMenuItem("About");
+        optionsMenu.add(helpItem);
+        optionsMenu.add(aboutItem);
+        helpItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    JOptionPane.showMessageDialog(frame, "Start the game by pressing 'Start Game'");
+                }
+            });
+        aboutItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    JOptionPane.showMessageDialog(frame, "Mathematics Quiz Version 1.0");
+                }
+            });
+
+    }
+
+    /**
+     * This method creates the panel for the game. It also includes listeners which call another method.
+     * The panel created in this method is an important one which the game really depends on.
+     */
+    public void makeStartGame()
+    {
+        //Items on the Game panel
+        questionLabel = new JLabel("Question", JLabel.CENTER);
+        questionLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        userInput = new JTextField();
+        submitButton = new JButton("Submit your answer");
+
+        //Items added to the panel inside of the game panel
+        panelGame.setLayout(new GridLayout(3, 1));
+        panelGame.add(questionLabel);
+        panelGame.add(userInput);
+        panelGame.add(submitButton);
+        panelGame.setBackground(Color.ORANGE);
+
+        userInput.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    setQuestion();
+                }
+            });
+
+        submitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    setQuestion();
+                }
+            });
+    }
+
+    /**
+     * In this method the summary page is created. This page is shown on a JPanel after the player has
+     * completed all 10 questions. The summary page includes listeners which once the user has entered their
+     * name, their name and score is recorded in the player object variables.
+     */
+    private void makeSummary()
+    {
+        //Items on the Game panel
+        youScored = new JLabel("You scored:", JLabel.CENTER);
+        youScored.setFont(new Font("Arial", Font.PLAIN, 20));
+        scoreLabel = new JLabel("",JLabel.CENTER);
+        nameInput = new JTextField("", JTextField.CENTER);
+        submitNameButton = new JButton("Submit your name and score");
+
+        //Items added to the panel inside of the game panel
+        panelSumm.setLayout(new GridLayout(4, 1));
+        panelSumm.add(youScored);
+        panelSumm.add(scoreLabel);
+        panelSumm.add(nameInput);
+        panelSumm.add(submitNameButton);
+        panelSumm.setBackground(Color.GREEN);
+
+        nameInput.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    currentPlayer.setName(nameInput.getText());
+                    nameInput.setText("");
+                    cl.show(panelMain, "1");
+                }
+            });
+        
+        submitNameButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    currentPlayer.setName(nameInput.getText());
+                    nameInput.setText("");
+                    cl.show(panelMain, "1");
+                }
+            });
+    }
+
+    /**
+     * This method creates the instructions page, this is a simlple panel which includes a GridLayout to
+     * display a set of instructions. A JButton is used to return the user back to the main menu page.
+     */
+    private void makeInstructions()
+    {
+        instTitle = new JLabel("Instructions", JLabel.CENTER);
+        instTitle.setFont(new Font("Arial", Font.PLAIN, 20));
+        stepOne = new JLabel("When starting the game, you will be presented with a question.", JLabel.CENTER);
+        stepTwo = new JLabel("Awnser the questions with numerical values, then enter your name and submit your score.", JLabel.CENTER);
+        stepThree = new JLabel("Then compare your scores with previous players on the scores page.", JLabel.CENTER);
+        instBack = new JButton("Back");
+
+        //Items added to the panel inside of the game panel
+        panelInst.setLayout(new GridLayout(5, 0));
+        panelInst.add(instTitle);
+        panelInst.add(stepOne);
+        panelInst.add(stepTwo);
+        panelInst.add(stepThree);
+        panelInst.add(instBack);
+        panelInst.setBackground(Color.RED);
+
+        instBack.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    cl.show(panelMain, "1");
+                }
+            });
+    }
+
+    /**
+     * This method creates the scores page, by retrieving the detials of the person the program displays them
+     * on this page. Therefore, different players can compare eachothers scores.
+     */
+    private void makeScoresPanel()
+    {
+        //Items on scores panel
+        subPanelScore = new JPanel();
+        scoreTitle = new JLabel("Scores", JLabel.CENTER);
+        scoreTitle.setFont(new Font("Arial", Font.PLAIN, 20));
+        scoreBackButton = new JButton("Back");
+        //Items on the print scores panel
+        firstPlayerLabel = new JLabel("1. " + player1.getName() + " scored " + player1.getScore() +" out of 10.", JLabel.CENTER);
+        secondPlayerLabel = new JLabel("2. " + player2.getName() + " scored " + player2.getScore() +" out of 10.", JLabel.CENTER);
+        thirdPlayerLabel = new JLabel("3. " + player3.getName() + " scored " + player3.getScore() +" out of 10.", JLabel.CENTER);
+        fourthPlayerLabel = new JLabel("4. " + player4.getName() + " scored " + player4.getScore() +" out of 10.", JLabel.CENTER);
+        fifthPlayerLabel = new JLabel("5. " + player5.getName() + " scored " + player5.getScore() +" out of 10.", JLabel.CENTER);
+
+        //Items added to the panel inside of the high scores panel
+        subPanelScore.setLayout(new GridLayout(5, 1));
+        subPanelScore.add(firstPlayerLabel);
+        subPanelScore.add(secondPlayerLabel);
+        subPanelScore.add(thirdPlayerLabel);
+        subPanelScore.add(fourthPlayerLabel);
+        subPanelScore.add(fifthPlayerLabel);
+        subPanelScore.setBackground(Color.GREEN);
+
+        panelScore.setLayout(new BorderLayout());
+        panelScore.add(scoreTitle, BorderLayout.NORTH);
+        panelScore.add(scoreBackButton, BorderLayout.WEST);
+        panelScore.add(subPanelScore, BorderLayout.CENTER);
+        panelScore.setBackground(Color.GREEN);
+
+        scoreBackButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    cl.show(panelMain, "1");
+                    panelScore.removeAll();
+                }
+            });
+    }
+
+    /**
+     * This method is used to set the up the next question. Different components are used in the method
+     * which allow the program to use the usersInput, reset the input and generate the next question.
+     */
+    private void setQuestion()
+    {
+        String userAnswer = userInput.getText();
+        currentPlayer.submitAnswer(userAnswer, questionCount);
+        questionCount++;
+        if(questionCount >= 11){
+            currentPlayer.setScore();
+            scoreLabel.setText(currentPlayer.getScore() + " out of 10");
+            cl.show(panelMain, "3");
+        }
+        else{
+            questionLabel.setText("Question " + questionCount + ": " + currentPlayer.getQuestion(questionCount));
+            userInput.setText("");
+        }
+    }
+}
+
+___________________________________________________The Player Class
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * The Player class stores alot of information that is used in the program. This class mainly focuses on one
+ * player, whcih is used as an object in the interface. The program stores information about the players
+ * questions and answers.
+ * 
+ * @author (James Hannigan) 
+ * @version (1.0)
+ */
+public class Player
+{
+    private String name;
+    private int score;
+    private ArrayList answers = new ArrayList<Question>();
+    Question Q1 = new Question(1);
+    Question Q2 = new Question(2);
+    Question Q3 = new Question(3);
+    Question Q4 = new Question(4);
+    Question Q5 = new Question(5);
+    Question Q6 = new Question(6);
+    Question Q7 = new Question(7);
+    Question Q8 = new Question(8);
+    Question Q9 = new Question(9);
+    Question Q10 = new Question(10);
+
+    /**
+     * The constructor immediately calls a method.
+     */
+    public Player()
+    {
+        addToArray();
+    }
+
+    /**
+     * The name of the player is set in this method when the user must enter their name.
+     * 
+     * @Param A string called name is passed through which includes the users input.
+     */
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+    
+    /**
+     * This method retrieves the users name. If the users name is nothing, the is then returned as "no_name".
+     * 
+     * @Return The variable name is returned.
+     */
+    public String getName()
+    {
+        if(name == null){
+            name = "no_name";
+        }
+        return name;
+    }
+
+    public String getQuestion(int questionCount)
+    {
+        String questionText = null;
+        Iterator<Question> it = answers.iterator();
+        while(it.hasNext()){
+            Question question = it.next();
+            if(question.getQuestionNo() == questionCount){
+                questionText = getQuestion(question);
+            }
+        }
+        return questionText;
+    }
+    
+     /**
+      * The submit method used the users input and the question theyre on and then works out whether the
+      * users input matches the answer, if the answer is correct the method setCorrect is called and a 
+      * boolean value is changed to true. If the question is wrong the boolean is left false.
+      * 
+      * @Param The userAnswer String submits the usersAnswer to the question.
+      *         The questionCount determines which question object is being referred to.
+      */
+    public void submitAnswer(String userAnswer, int questionCount)
+    {
+        Question question = ((Question) answers.get(questionCount-1));
+        int answerInt = Integer.parseInt(userAnswer);
+        if(question.getQuestionNo() == questionCount){
+            if(question.getAnswer() == answerInt){
+                question.setCorrect(true);
+            }
+        }
+    }
+
+    private String getQuestion(Question question)
+    {
+        int firstNo = question.getFirst();
+        String operation = question.getOperation();
+        int secondNo = question.getSecond();
+        String q = "What is " + firstNo + operation + secondNo + "?";
+        return q;
+    }
+
+    /**
+     *  This method adds the variables to the array. These variables hold question objects.
+     */
+    private void addToArray()
+    {
+        answers.add(Q1);
+        answers.add(Q2);
+        answers.add(Q3);
+        answers.add(Q4);
+        answers.add(Q5);
+        answers.add(Q6);
+        answers.add(Q7);
+        answers.add(Q8);
+        answers.add(Q9);
+        answers.add(Q10);
+    }
+    
+    /**
+     * This method sets the score of the player, a for loop determines how many questions were answered
+     * correctly and adds another number too the variable score.
+     */
+    public void setScore()
+    {
+        int i;
+        for(i = 0; i<10; i++){
+            if(((Question) answers.get(i)).getCorrect() == true){
+                score++;
+            }
+        }
+    }
+    
+    /**
+     * This method retrieves changes the value stored in score into an string. The string is then
+     * returned.
+     * @Return The scoreStr is then returned as the outcome.
+     */
+    public String getScore()
+    {
+        String scoreStr = Integer.toString(score);
+        return scoreStr;
+    }
+}
+
+___________________________________________________The Question Class
+
+import java.util.Random;
+/**
+ * This class wholes question objects which make questions and calculate answers.
+ * 
+ * @author (James Hannigan) 
+ * @version (1.0)
+ */
+public class Question
+{
+    private int questionNo;
+    private boolean correct;
+    private int firstNo;
+    private int secondNo;
+    private int operationInt;
+    private String operationStr;
+    private int answer;
+
+    /**
+     * The constructor for this class gives the question object a name, calls classes which return
+     * values which are then assigned to the variables in the class and used throughout the question object
+     * and calculates the answer to the question.
+     * 
+     * @Param takes a number which then is assigned to the question as the question number, so the object can
+     * be returned later on.
+     */
+    public Question(int questionNo)
+    {
+        this.questionNo = questionNo;
+        firstNo = generateNo();
+        secondNo = generateNo();
+        operationInt = setOpertion();
+        setAnswer();
+    }
+
+    /**
+     * Retrieves the first number of the equation.
+     * 
+     * @Return Returns the integer value stored in firstNo
+     */
+    public int getFirst()
+    {
+        return firstNo;
+    }
+
+    /**
+     * Retrieves the second number of the equation.
+     * 
+     * @Return Returns the integer value stored in secondNo
+     */
+    public int getSecond()
+    {
+        return secondNo;
+    }
+    
+    /**
+     * Retrieves the answer of the equation.
+     * 
+     * @Return Returns the integer value stored in answer.
+     */
+    public int getAnswer()
+    {
+        return answer;
+    }
+    
+    /**
+     * Retrieves the operation string of the equation (+, - or *).
+     * 
+     * @Return Returns the integer value stored in operationStr.
+     */
+    public String getOperation()
+    {
+        return operationStr;
+    }
+    
+    /**
+     * Sets whether the question's answer was answered correctly or not.
+     * 
+     * @Param Takes a boolean called correct which then assigns whether the question was answered correctly
+     * or not.
+     */
+    public void setCorrect(Boolean correct)
+    {
+        this.correct = correct;
+    }
+    
+    /**
+     * Retrieves whether the question was answered correctly or not.
+     * 
+     * @Return Returns the boolean variable which says whether the question is right or wrong.
+     */
+    public boolean getCorrect()
+    {
+        return correct;
+    }
+    
+    /**
+     * Returns the number of the question, so the question can be identified.
+     * 
+     * @Return Returns the integer value stored in questionNo
+     */
+    public int getQuestionNo()
+    {
+        return questionNo;
+    }
+    
+    /**
+     * Sets the Operation of the question, which is chosen by random and assigns the random value to an int.
+     * 
+     * @return An integer is returned which includes a number which is later assigned to a operation.
+     */
+    private int setOpertion()
+    {
+        Random rand = new Random();
+        int numAssign = rand.nextInt(3);
+        return numAssign;
+    }
+    
+    /**
+     * This method takes the number of the operationInt and then depending on the value assigns it to an
+     * operation value via an if statement. Then depending on the operation calculates the answer.
+     */
+    private void setAnswer()
+    {
+        if(operationInt == 0){
+            answer = firstNo + secondNo;
+            operationStr = "+";
+        }
+        else if(operationInt == 1){
+            answer = firstNo - secondNo;
+            operationStr = "-";
+        }
+        else{
+            answer = firstNo * secondNo;
+            operationStr = "x";
+        }
+    }
+
+    /**
+     * This method retrieves a random number between 0 and 10. It then returns the random number.
+     * 
+     * @return Returns a variable called randomNo, which is an int and includes a random value.
+     */
+    private int generateNo()
+    {
+        Random rand = new Random();
+        int randomNo = rand.nextInt(10);
+        return randomNo;
+    }
+}

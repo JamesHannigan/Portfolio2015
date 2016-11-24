@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hannigan Projects - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+    <style>
+        #projects{
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #projects img{
+            margin: -4px -2.5px;
+            width: 26vw;
+            border: solid 1px black;
+        }
+
+        #curbar:hover, #maths:hover, #mySite:hover, #word:hover{
+            -webkit-filter: brightness(15%);
+            filter: brightness(15%);
+        }
+
+        #lilText{
+            position:fixed;
+            display: none;
+            color: white;
+            font-size: 30px;
+            font-size: 1.8vw;
+            text-align: center;
+        }
+    </style>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="home.html"><img src="Images/Nav/home.png" alt="homeNav">  Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+    
+<!--Main-->
+<div id="main">
+  <h1 id="logo">Hannigan Projects</h1>
+    <p id="tagline">Plan, Design, Build</p> 
+    
+<!--Page Content-->
+    <div id="content">
+  <h2>Portfolio</h2>  
+        <table id="projects">
+            <tr><td><a href="projectCurbar.html"><img src="Images/Project/Curbar.png" id="curbar" onmousemove="interact('curbar')" onmouseout="mouseExit('curbar')"></a></td>
+                <td><a href="projectMaths.html"><img src="Images/Project/Maths%20quiz.png" id="maths" onmousemove="interact('maths')" onmouseout="mouseExit('maths')"></a></td>
+                <td><a href="projectWebsite.html"><img src="Images/Project/HanniganProjects.png" id="mySite" onmousemove="interact('mySite')" onmouseout="mouseExit('mySite')"></a></td></tr>
+            <tr><td><a href="projectWord.html"><img src="Images/Project/Online%20work%20proccessor.png" id="word" onmousemove="interact('word')" onmouseout="mouseExit('word')"></a></td> 
+            </tr>
+        </table>
+    </div>
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png"
+    </div>
+<p id="lilText" onmousemove="interactText()" onclick="redirect()">Hello</p>
+</body>
+</html>

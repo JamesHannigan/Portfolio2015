@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematics Quiz - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="home.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <h1 id="logo">Hannigan Projects</h1>
+    <p id="tagline">Plan, Design, Build</p>
+    
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <img id="projPic" src="Images/Project/Maths%20quiz.png"></td>
+        <td id="title">Mathematics Quiz</td></tr>
+            <tr><td id="type">Java Game</td></tr>
+            <tr><td id="desc">This project was the last programming assignment of my first year at university. I had to create a game with a graphical user interface. I decided to create a simple mathematics game where the program generates 10 questions, in which the user has to answer each question correctly. I also added individual players to the game, so that players can compete and compare their scores. I was awarded 98% for this assignment, which I am very proud of. </td></tr>
+            <tr><td id="action"><a href="Mathematics%20Game.jar"><button id="actionButton">Download file</button></a><a href="mathsGame.txt"><button id="actionButton">View Source</button></a></td></tr>
+        </table>
+    </div>
+    
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

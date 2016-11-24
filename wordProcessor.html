@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>Online Word Proccessor</title>
+    <meta charset="UTF-8">
+    <style>
+        html{
+            color: black;
+            background-color:black;
+            width: 75%;
+            max-width: 640px;
+            min-width:640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family:monospace;
+            margin-bottom: 50px;
+            }
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            color: white;
+        }
+        button{
+            background-color: white;
+        }
+        select{
+            background-color: white;
+            
+        }
+        input{
+            width: 20px;
+        }
+        #inputDocument{
+            width: 100%;
+            height: 800px;
+            border: 3px solid darkgrey;
+            font-size: 30px;
+            resize: none;
+        }
+        #toolbar{
+            background-color: #B8BFC2;
+            border: 2px solid darkgrey;
+            width: 101%;
+        }
+        footer{
+            color: white;
+            text-align: right;
+        }
+        #creator{
+            width: 180px;
+        }
+        </style>
+        <script type="text/javascript"> 
+            var userInput;
+            
+            function assignInput(){
+                userInput = document.getElementById("inputDocument");
+            }
+            function makeBold(){
+               assignInput(); 
+                if(document.getElementById("boldButton").style.backgroundColor =="darkgrey"){
+                    userInput.style.fontWeight='normal'; 
+                    document.getElementById("boldButton").style.backgroundColor="white";
+                        }
+                else{
+                    userInput.style.fontWeight='bold'; 
+                    document.getElementById("boldButton").style.backgroundColor="darkgrey";
+                        }
+            }
+            function makeUnderline(){
+                assignInput();
+                if(document.getElementById("underButton").style.backgroundColor =="darkgrey"){
+                    userInput.style.textDecoration='none'; 
+                    document.getElementById("underButton").style.backgroundColor="white";
+                        }
+                else{
+                    userInput.style.textDecoration="underline"; 
+                    document.getElementById("underButton").style.backgroundColor="darkgrey";
+                        }
+            }
+            function makeItalic(){
+                assignInput(); 
+                if(document.getElementById("italicButton").style.backgroundColor =="darkgrey"){
+                    userInput.style.fontStyle="normal"; 
+                    document.getElementById("italicButton").style.backgroundColor="white";
+                        }
+                else{
+                    userInput.style.fontStyle="italic"; 
+                    document.getElementById("italicButton").style.backgroundColor="darkgrey";
+                        }
+            }
+            function changeColour(){
+                assignInput();
+                var selectBox = document.getElementById("colourDrop");
+                var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                userInput.style.color=selectedValue;
+            }
+            function changeFont(){
+                assignInput();
+                var selectBox = document.getElementById("fontDrop");
+                var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+                userInput.style.fontFamily=selectedValue;
+            }
+            function changeRGB(){
+                assignInput();
+                var redVar = document.getElementById("redInput").value;
+                var greenVar = document.getElementById("greenInput").value;
+                var blueVar = document.getElementById("blueInput").value;
+                
+                if(redVar <= 255 && redVar >= 0 && greenVar <= 255 && greenVar >= 0 && blueVar <= 255 && blueVar >= 0){
+                    userInput.style.backgroundColor="rgb(" + redVar + "," + greenVar + "," + blueVar + ")";
+                }
+                else{
+                    alert("All RGB values must be between 0 and 255.");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <img src="Images/Logo.jpg" alt="Title of page">
+        <div id="toolbar">
+            <table>
+            <tr>
+            <td><button id="boldButton" onclick="makeBold()">Bold</button></td>
+            <td><button id="italicButton" onclick="makeItalic()">Italic</button></td>
+            <td><button id="underButton" onclick="makeUnderline()">Underline</button></td>
+            <td><select id="colourDrop" onchange="changeColour()">
+                    <option>Colour</option>
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="pink">Pink</option>
+                </select></td>
+            <td><select id="fontDrop" onchange="changeFont()">
+                    <option>Font</option>
+                    <option value="arial">Arial</option>
+                    <option value="comic sans ms">Comic Sans MS</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="impact">Impact</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Palatino Linotype">Palatino Linotype</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                </select></td>
+            <td>RGB:<input type="text" id="redInput" value="255">
+                    <input type="text" id="greenInput" value="255">
+                    <input type="text" id="blueInput" value="255">
+                    <button onclick="changeRGB()">Submit</button></td>
+            </tr>
+            </table>
+        </div>
+        <textarea id="inputDocument"></textarea>
+        <footer><img id="creator" alt="Creator's Name" src="Images/Creator.jpg"></footer>
+    </body>
+</html>
