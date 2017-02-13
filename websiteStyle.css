@@ -17,8 +17,8 @@ body{
 }
 
 #tagline{
-    margin-top: -6.4vw;
-    font-size: 1.58vw;
+    margin-top: -6.0vw;
+    font-size: 0.9vw;
     text-align: right;
     padding-right: 10px;
     font-style: italic;
@@ -91,7 +91,7 @@ body{
 }
 
 #homeTagline{
-    margin-top: -2vw;;
+    margin-top: -2vw;
     font-size: 16px;
     font-size: 1.85vw;
     text-align: right;
@@ -136,7 +136,7 @@ body{
 }
 
 #aboutText::-webkit-scrollbar-thumb {
-    background-color: white; 
+    background-color: white;
 }
 
 #profilePic{
@@ -160,7 +160,7 @@ body{
 }
 
 #projContent #back a{
-    color: #b3b3b3; 
+    color: #b3b3b3;
     text-decoration: none;
 }
 
@@ -265,7 +265,7 @@ h3{
     width: 35vw;
     height: 70px;
     vertical-align: top
-    
+
 }
 
 #contentResume legend{
