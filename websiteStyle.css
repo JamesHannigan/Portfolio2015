@@ -67,6 +67,10 @@ body{
     background-color: #555;
 }
 
+#content{
+    margin-top: -40px;
+}
+
 #content h2{
     font-size: 25px;
     padding-left: 4vw;
