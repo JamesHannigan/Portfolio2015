@@ -1,0 +1,85 @@
+<!DOCTYPE_HTML>
+<html>
+    <head>
+    <style>
+        body{
+            background-image: url(killer/backHa.jpg);
+            background-size: cover;
+        }
+        #cover{
+            position: absolute;
+            background-color: grey;
+            width: 100%;
+            height: 100%;
+            top:0px;
+            left:0px;
+        }
+        form{
+            width: 20%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 200px;
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+        }
+        img{
+            margin-top: -130px;
+            position: absolute;
+        }
+        h1{
+            color:aliceblue;
+            margin-top: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 70%;
+            font-size: 7vw;
+        }
+        h2{
+            color:aliceblue;
+            margin-top: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 70%;
+            font-size: 5vw;
+        }
+        </style>
+        <script>
+        function destroyCover(){
+            Name = document.getElementById("fname").value;
+            if(Name == "Kilian" || Name== "kilian"){
+                var currentTime = new Date().getTime();
+                var audio = new Audio('killer/Wait now what did I search.m4a');
+                    audio.play();
+                var fleet = new Audio('killer/Should I Stay or Should I Go.mp3');
+                    fleet.play();
+                 while (currentTime + 400 >= new Date().getTime()) {}
+                cover = document.getElementById("cover");
+                cover.style.opacity = "0";
+            }
+            else{
+                window.alert("Sorry " + Name + "is not accepted.") 
+            }
+        }
+        function sleep(miliseconds) {
+           var currentTime = new Date().getTime();
+           while (currentTime + miliseconds >= new Date().getTime()) {
+           }
+        }
+        </script>
+    </head>
+<body>
+<h1>Happy Birthday Dad!</h1>
+    <h2>You're the best, love you always</h2>
+    <img src="killer/dad3.png" width="300px" style="bottom:0;">
+    <img src="killer/Dad1.jpg" width="300px" style="bottom:0; left:350px;">
+    <img src="killer/dad2.png" width="300px" style="right:0; bottom:0;">
+    <div id="cover">
+        <form>
+        Enter your first name:<br>
+            <input type="text" id="fname"><br>
+            <button type="button" onclick="destroyCover()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
