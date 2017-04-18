@@ -152,11 +152,13 @@ body{
 }
 
 #profilePic{
-    width: 17vw;
+    width: 19vw;
     border: white solid 2px;
     position:absolute;
-    right: 30px;
+    right: 40px;
     top: 150px;
+    filter: sepia(90%);
+    filter: grayscale(40%);
 }
 
 /* Individual portfolio projects*/
