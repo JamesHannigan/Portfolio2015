@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>James Hannigan - Photography Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="index.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <img src="Images/Logo.PNG" id="logo" align="right">
+    <!--<p id="tagline">Plan, Design, Build</p>-->
+
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <a href="http://jameshanniganphotos.000webhostapp.com/portfolio.php" target="_blank"><img id="projPic" src="Images/Project/Photography.png"></a></td>
+        <td id="title">Photography Portfolio</td></tr>
+            <tr><td id="type">Web development and design</td></tr>
+            <tr><td id="desc">One of my favourite hobbies is photography. So with my web development skills I created a website to showcase some of my work. I incorporated the use of a MySQL database and PHP, to allow me to upload new photos and blogs by simply adding a new entry to the database. Thus, making it not nessessary to change any of the websites code.
+                </td></tr>
+            <tr><td id="action"><a href="http://jameshanniganphotos.000webhostapp.com/portfolio.php" target="_blank"><button id="actionButton">View Website</button></a></td></tr>
+        </table>
+    </div>
+
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

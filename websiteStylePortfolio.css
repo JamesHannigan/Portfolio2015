@@ -1,0 +1,309 @@
+body{
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#logo{
+    margin-top: 0px;
+    position:fixed;
+    right: 0;
+    width: 60vw;
+    padding-right: 15vw;
+}
+
+
+#main #tagline{
+    margin-top: -6.3vw;
+    font-size: 0.97vw;
+    text-align: right;
+    padding-right: 10px;
+    font-style: italic;
+    }
+
+#main{
+    z-index: 1;
+    position: absolute;
+    width: 86%;
+    height: 100%;
+    background-color: #1f1f1f;
+}
+
+#nav ul {
+    position: fixed;
+    list-style-type: none;
+    margin-top: 0;
+    padding-top: 140px;
+    background-color: #181717;
+    height: 100%;
+    overflow: auto;
+    right: 0;
+    width: 14%;
+    font-size: 1.8vw;
+}
+
+#nav img{
+    padding-right: 5px;
+    height: 24px;
+    width: 25px;
+}
+
+#nav li a {
+    display: block;
+    color: #b3b3b3;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    height: 30px;
+}
+
+#nav li a.active {
+    color: white;
+}
+
+#nav li a:hover {
+    background-color: #555;
+}
+
+#content{
+    padding-top: 5vw;
+    overflow: scroll;
+    background-color: #1f1f1f;
+}
+
+#content h2{
+    font-size: 25px;
+    padding-left: 4vw;
+}
+
+#content p{
+    font-size: 18px;
+    padding-left: 6vw;
+    padding-right: 5vw;
+}
+
+#content a{
+    color: white;
+}
+/*Home page*/
+#homeLogo{
+    margin-top: 200px;
+    width: 100%;
+    font-size: 9vw;
+    margin-bottom: 0px;
+}
+
+#homeTagline{
+    margin-top: -2vw;
+    font-size: 1.3vw;
+    text-align: right;
+    padding-right: 30px;
+    font-style: italic;
+    width: 92.2%;
+    margin-bottom: 0;
+}
+
+#line{
+    height: 2px;
+    background-color: white;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+}
+
+#sweetText{
+    margin-top: 0;
+    font-size: 2vw;
+    text-align: center;
+    /*font-style: italic;*/
+    width: 100%;
+}
+
+/* About me page*/
+#aboutText{
+    margin-top: -15px;
+    height: 400px;
+    width: 85vw;
+    overflow-y: scroll;
+}
+
+#aboutText p{
+    font-size: 15px;
+}
+
+#aboutText::-webkit-scrollbar{
+    width: 5px;
+    background-color: grey;
+}
+
+#aboutText::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+
+#profilePic{
+    width: 19vw;
+    border: white solid 2px;
+    position:absolute;
+    right: 40px;
+    top: 150px;
+}
+
+/* Individual portfolio projects*/
+
+#projContent{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7vw;
+}
+
+#projContent #back{
+    padding-bottom: 10px;
+}
+
+#projContent #back a{
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+#projContent #back img{
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+}
+
+#projContent #back img:hover, #projContent #back a:hover{
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    color: white;
+}
+
+#projContent table{
+    width: 90%;
+    margin: auto;
+    height: 100%;
+}
+
+#projContent #title{
+    font-size: 2vw;;
+}
+
+#projContent #type{
+    font-size: 1.4vw;
+    font-style: italic;
+}
+
+#projContent #desc{
+    font-size: 1.3vw;
+}
+
+#projContent h2{
+  font-size: 25px;
+}
+
+#projPic{
+    width: 35vw;
+    border: solid 1px white;
+}
+
+#action{
+    text-align: center;
+}
+
+#actionButton{
+    font-size: 1.2vw;
+    background-color: white;
+    color: #292C35;
+    text-align: center;
+    border-radius: 19px;
+    font-weight: 900;
+}
+
+/*Resume page (more css internally)*/
+#eduTable{
+    overflow-y: scroll;
+}
+
+.resumeHeader{
+    font-size: 18px;
+}
+
+h3{
+    margin-bottom: -15px;
+    margin-top: -15px;
+    padding-left: 20px;
+}
+
+/*Contact page*/
+#text{
+    height: 20px;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#contentResume{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contentResume h2{
+    margin-left: -5vw;
+}
+
+#contentResume div{
+    padding-bottom: 2px;
+    padding-top: 2px;
+    font-size: 13px;
+}
+
+#contentResume label{
+    display: inline-block;
+    width: 110px;
+    text-align: right;
+}
+
+#contentResume #email{
+    width: 200px;
+}
+
+#contentResume #message{
+    width: 35vw;
+    height: 70px;
+    vertical-align: top
+
+}
+
+#contentResume legend{
+    font-size: 13.5px;
+}
+
+#myContact{
+    margin-bottom: 2px;
+}
+
+#myContact label{
+    width: 240px;
+    vertical-align:top;
+}
+
+#myContact img{
+    margin-top: -4px;
+    width: 23px;
+}
+
+#myContact a{
+    color: white;
+}
+
+#city{
+    bottom: 0;
+    position: fixed;
+    width: 86%;
+    z-index: -1;
+    left: 0;
+    filter: brightness(80%);
+}
