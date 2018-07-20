@@ -151,14 +151,27 @@ body{
     background-color: white;
 }
 
+#portfolioScroll{
+    height: 500px;
+    width: 85vw;
+    overflow-y: scroll;
+}
+
+#portfolioScroll::-webkit-scrollbar{
+    width: 5px;
+    background-color: grey;
+}
+
+#portfolioScroll::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+
 #profilePic{
     width: 19vw;
     border: white solid 2px;
     position:absolute;
     right: 40px;
     top: 150px;
-    filter: sepia(90%);
-    filter: grayscale(40%);
 }
 
 /* Individual portfolio projects*/

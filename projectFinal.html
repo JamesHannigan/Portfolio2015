@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>James Hannigan - Final Group Project</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="index.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <img src="Images/Logo.PNG" id="logo" align="right">
+    <!--<p id="tagline">Plan, Design, Build</p>-->
+
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <a href="https://machinelearningxo.github.io/" target="_blank"><img id="projPic" src="Images/Project/MachineLearningXO.png"></a></td>
+        <td id="title">Final Group Project</td></tr>
+            <tr><td id="type">Demonstration Video and Application</td></tr>
+            <tr><td id="desc">This was my final year project in which I was put in a team and had the freedom of which project to produce. We decided to create an application of tic tac toe which a player could play against a computer. We also had to submit other delieverables, including reports, code, etc. However, I have only uploaded the demonstration video and the JAR application to this website. </td>
+</tr>
+            <tr><td id="action"><button id="actionButton" onclick="window.open('https://machinelearningxo.github.io/','_blank');">View Website</button><button id="actionButton" onclick="window.open('https://www.youtube.com/watch?v=6p5uZe0pxm8','_blank');">Watch on Youtube</button></td></tr>
+        </table>
+    </div>
+
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>James Hannigan - Project Internet of Things</title>
+    <link rel="stylesheet" type="text/css" href="websiteStyle.css">
+    <script src="websiteJS.js"></script>
+</head>
+<body onresize="pageResize()" onload="pageResize()">
+<!--Navigation-->
+    <div id="nav">
+<ul>
+  <li><a href="index.html"><img src="Images/Nav/home.png" alt="homeNav" onmouseover="hoverHome()"> Home</a></li>
+  <li><a href="aboutme.html"><img src="Images/Nav/aboutme.png" alt="aboutmeNav">  About Me</a></li>
+  <li><a class="active" href="portfolio.html"><img src="Images/Nav/portfolio-white.png" alt="portfolioNav">  Portfolio</a></li>
+  <li><a href="resume.html"><img src="Images/Nav/resume.png" alt="resumeNav">  R&eacute;sum&eacute; </a></li>
+  <li><a href="contact.html"><img src="Images/Nav/contact.png" alt="contactNav">  Contact</a></li>
+</ul>
+    </div>
+<!--Main-->
+<div id="main">
+  <img src="Images/Logo.PNG" id="logo" align="right">
+    <!--<p id="tagline">Plan, Design, Build</p>-->
+
+<!--Page Content-->
+    <div id="projContent">
+  <h2>Portfolio</h2>
+        <div id="back">
+        <a href="portfolio.html"><img src="Images/Nav/projects.png" style="width: 20px;"> Return to Portfolio</a></div>
+        <table>
+        <tr><td rowspan='4'>
+            <a href="Images/Project/View1.jpg"><img id="projPic" src="Images/Project/Graphics.png"></a></td>
+        <td id="title">Graphics (Blender) assignment</td></tr>
+            <tr><td id="type">Model photos</td></tr>
+            <tr><td id="desc">In this assignment I had to model a scene based on a set of photos. The software we used was blender, in which we were taught the concepts but had to self-teach ourselves by using the internet and books on how to use blender. I am proud of the outcome and recieved a first grade as the result. I have uploaded both the main views as a comparison to my modeled scene.
+                </td>
+</tr>
+            <tr><td id="action"><button id="actionButton" onclick="window.open('Images/Project/View1.jpg');">Open view 1</button><button id="actionButton" onclick="window.open('Images/Project/View2.jpg');">Open view 2</button></td></tr>
+        </table>
+    </div>
+
+<!--City silhouette at footer of the page-->
+    <img id="city" src="Images/Cities/Rome.png">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food Hygiene Ratings</title>
+        <style>
+            html{
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #20202A;
+                color: white;
+            }
+            h1{
+                text-align: center;
+                font-weight: bold;
+                font-size: 50px;
+                margin-bottom: 0px;
+            }
+            #mainTable{
+                background-color: #292C35;
+                padding-bottom: 10px;
+            }
+            #pageNav{
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+                padding-bottom: 10px;
+            }
+            #searchInput{
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            #mainTable button{
+                width: 75px;
+            }
+        </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> //Adding the jQuery library to the webpage
+</script>
+<script>
+    
+    //  Task 1.1 – Retrieving the First Page of Results When the Page Loads
+    $(document).ready(function(){
+        
+        $.getJSON("https://www.cs.kent.ac.uk/people/staff/lb514/hygiene/hygiene.php", 
+    function(data) {  //Retrieving the information from the php file.
+        var rows = '';
+        $.each(data, function(key, value) {
+            rows +='<tr id="addedValues"><td>' + value.business + '</td><td>' + value.address + '</td><td>' + value.rating + '</td><td>' + value.date + '</td><td><button class="ratingButton" business="' + value.business + '" postcode="' + value.postcode + '">Get Rating</button></td></tr>';  //Adding the elements of the php file to an array.
+        }); 
+            $("#mainTable").append(rows); //The use of the append function adds the array to the 'mainTable' in the webpage.
+    });
+    //  Task 1.2 – A Basic Paginator
+        $("#pageNav button").click(function(){
+            $("#mainTable #addedValues").remove();  //Removes the old elements from the table
+            $url = "https://www.cs.kent.ac.uk/people/staff/lb514/hygiene/hygiene.php?op=retrieve&page=" + $(this).text(); //The variable of the url
+            $.getJSON($url, function(data) { //Retrieving the information from the php file.
+                var rows = '';
+        $.each(data, function(key, value) {
+            rows +='<tr id="addedValues"><td>' + value.business + '</td><td>' + value.address + '</td><td>' + value.rating + '</td><td>' + value.date + '</td><td><button class="ratingButton" business="' + value.business + '" postcode="' + value.postcode + '">Get Rating</button></td></tr>';  //Adding the elements of the php file to an array.
+        }); 
+            $("#mainTable").append(rows);   //The use of the append function adds the array to the 'mainTable' in the webpage.
+    });
+        })
+    
+    //  Task 1.3 – Search Functionality
+        $("#searchInput").submit(function(){
+            event.preventDefault();
+            $("#mainTable #addedValues").remove();  //Removes the old elements from the table
+            $url = "https://www.cs.kent.ac.uk/people/staff/lb514/hygiene/hygiene.php?op=searchname&name=" + $('#searchText').val(); //The variable of the url
+            $.getJSON($url, function(data) {  
+                var rows = '';
+                $.each(data, function(key, value) {
+                rows +='<tr id="addedValues"><td>' + value.business + '</td><td>' + value.address + '</td><td>' + value.rating + '</td><td>' + value.date + '</td><td><button class="ratingButton" business="' + value.business + '" postcode="' + value.postcode + '">Get Rating</button></td></tr>';  //Adding the elements of the php file to an array.
+            }); 
+        $("#mainTable").append(rows);   //The use of the append function adds the array to the 'mainTable' in the webpage.
+        });
+    })
+    
+        //  Task 2.1 – Retrieving the Customer Rating when Requested by the User
+            $("#mainTable").on("click", "button.ratingButton", function(){
+                $thisButton = $(this);
+                $.getJSON("https://www.cs.kent.ac.uk/people/staff/lb514/hygiene/rating.php?name=" + $(this).attr('business'), 
+                    function(data) {  //This returns the information from the rating.php
+                        if(data.length == 0){   //If the data's length equals 0, then an alert telling the user that a rating is not avalible is sent.
+                            alert("Customer rating is not available for '" + $thisButton.attr('business') + "'");
+                        }
+                $.each(data, function(key, value) {
+                    if (value.address.indexOf($thisButton.attr('postcode')) !== -1){ //If the addresss returned by the url contains the postcode of the selected business address. Then it sends an alert which prints the rating of the restruant.
+                            alert("The Customer rating of '" + $thisButton.attr('business') + "' is: " + value.rating);
+                        }
+                    });
+                });
+            });
+})
+        
+</script>
+    </head>
+    <body>
+    <h1>Food Hygiene Ratings</h1>
+        <p>The following table displays information about restruants/takeaways in canterbury. Use the page numbers below to browse through them all or specificly search for a business name in the search bar below.</p>
+        
+        <div id="pageNav"><table><tr><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button><button>11</button><button>12</button><button>13</button><button>14</button><button>15</button></tr></table></div>
+        
+        <table id="mainTable">
+        <tr><th>Business</th><th>Address</th><th>Hygene</th><th>Date</th><th>Rating</th></tr>
+        </table>
+        
+        <form id="searchInput" action="">
+        Business name: <input type="text" id="searchText">
+            <input type="submit" value="Search">
+        </form>
+        
+    </body>
+</html>

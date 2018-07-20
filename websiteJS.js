@@ -34,7 +34,7 @@ function interact(n) {
     
     //Caption for hover
     if(n == "curbar"){
-        caption = "Promotional Video";
+        caption = "Curbar Promotional Video";
         selectImg = "curbar";
     }
     else if(n == "maths"){
@@ -48,6 +48,30 @@ function interact(n) {
     else if(n == "word"){
         caption = "Online Word Processor";
         selectImg = 'word';
+    }
+    else if(n == "AJAX"){
+        caption = "AJAX and JQuery Assignment";
+        selectImg = 'AJAX';
+    }
+    else if(n == "IoT"){
+        caption = "Internet of Things Assignment";
+        selectImg = 'IoT';
+    }
+    else if(n == "graphics"){
+        caption = "Graphics (Blender) Assignment";
+        selectImg = 'graphics';
+    }
+    else if(n == "final"){
+        caption = "Final Group Project";
+        selectImg = 'final';
+    }
+    else if(n == "creative"){
+        caption = "Computational Creativity Project";
+        selectImg = 'creative';
+    }
+    else if(n == "photography"){
+        caption = "Photography Portfolio";
+        selectImg = 'photography';
     }
 
     //Calculations for location
@@ -67,7 +91,7 @@ function interact(n) {
 function interactText(){
     var caption = document.getElementById("lilText").innerHTML;
     var selectImg;
-    if(caption == 'Promotional Video'){
+    if(caption == 'Curbar Promotional Video'){
         selectImg = "curbar";
         n = 'curbar';
     }
@@ -82,6 +106,30 @@ function interactText(){
     else if(caption == 'Online Word Processor'){
         selectImg = "word";
         n = 'word';
+    }
+    else if(caption == 'AJAX and JQuery Assignment'){
+        selectImg = "AJAX";
+        n = 'AJAX';
+    }
+    else if(caption == 'Internet of Things Assignment'){
+        selectImg = "IoT";
+        n = 'IoT';
+    }
+    else if(caption == 'Graphics (Blender) Assignment'){
+        selectImg = "graphics";
+        n = 'graphics';
+    }
+    else if(caption == 'Final Group project'){
+        selectImg = "final";
+        n = 'final';
+    }
+    else if(caption == 'Computational Creativity Project'){
+        selectImg = "creative";
+        n = 'creative';
+    }
+    else if(caption == 'Photography Portfolio'){
+        selectImg = "photography";
+        n = 'photography';
     }
     
     document.getElementById(selectImg).style.filter = "brightness(15%)";
@@ -107,6 +155,24 @@ function mouseExit(n){
     else if(n == "word"){
         selectImg = "word";
     }
+    else if(n == "AJAX"){
+        selectImg = "AJAX";
+    }
+    else if(n == "IoT"){
+        selectImg = "IoT";
+    }
+    else if(n == "graphics"){
+        selectImg = "graphics";
+    }
+    else if(n == "final"){
+        selectImg = "final";
+    }
+    else if(n == "creative"){
+        selectImg = "creative";
+    }
+    else if(n == "photography"){
+        selectImg = "photography";
+    }
     
     document.getElementById(selectImg).style.filter = "brightness(100%)";
     document.getElementById(selectImg).style.WebkitFilter = "brightness(100%)";
@@ -114,7 +180,7 @@ function mouseExit(n){
 
 function redirect(){
     var caption = document.getElementById('lilText').innerHTML;
-    if(caption == 'Promotional Video'){
+    if(caption == 'Curbar Promotional Video'){
         window.location = "projectCurbar.html";
     }
     else if(caption == 'Mathematics Game'){
@@ -126,6 +192,28 @@ function redirect(){
     else if(caption == 'Online Word Processor'){
         window.location = "projectWord.html";
     }
+    else if(caption == 'AJAX and JQuery Assignment'){
+        window.location = "projectAJAX.html";
+    }
+    else if(caption == 'Internet of Things Assignment'){
+        window.location = "projectIoT.html";
+    }
+    else if(caption == 'Graphics (Blender) Assignment'){
+        window.location = "projectGraphics.html";
+    }
+    else if(caption == 'Final Group Project'){
+        window.location = "projectFinal.html";
+    }
+    else if(caption == 'Computational Creativity Project'){
+        window.location = "projectCreative.html";
+    }
+    else if(caption == 'Photography Portfolio'){
+        window.location = "projectPhotography.html";
+    }
+}
+
+function hideText(){
+    document.getElementById("lilText").style.display = none;
 }
 
 //Javascript for the slideshow effect on the resume page
