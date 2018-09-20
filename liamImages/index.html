@@ -8,9 +8,10 @@
 
         setInterval(function() {
             $("#image").fadeOut(4000);
-            setTimeout(myFunction, 4000);
+            myFunction();
+            //setTimeout(myFunction, 4000);
             $("#image").fadeIn(4000);
-        }, 12000);
+        }, 8000);
 
         function myFunction() {
             var url = document.getElementById('image').src;
