@@ -37,6 +37,10 @@ function interact(n) {
         caption = "Curbar Promotional Video";
         selectImg = "curbar";
     }
+    else if(n == "hannigan"){
+        caption = "Hannigan Music";
+        selectImg = 'hannigan';
+    }
     else if(n == "maths"){
         caption = "Mathematics Game";
         selectImg = 'maths';
@@ -95,6 +99,10 @@ function interactText(){
         selectImg = "curbar";
         n = 'curbar';
     }
+    else if(caption == 'Hannigan Music'){
+        selectImg = "hannigan";
+        n = 'hannigan';
+    }
     else if(caption == 'Mathematics Game'){
         selectImg = "maths";
         n = 'maths';
@@ -146,6 +154,9 @@ function mouseExit(n){
     if(n == "curbar"){
         selectImg = "curbar";
     }
+    else if(n == "hannigan"){
+        selectImg = "hannigan";
+    }
     else if(n == "maths"){
         selectImg = "maths";
     }
@@ -182,6 +193,9 @@ function redirect(){
     var caption = document.getElementById('lilText').innerHTML;
     if(caption == 'Curbar Promotional Video'){
         window.location = "projectCurbar.html";
+    }
+    else if(caption == 'Hannigan Music'){
+        window.location = "projectLiam.html";
     }
     else if(caption == 'Mathematics Game'){
         window.location = "projectMaths.html";
