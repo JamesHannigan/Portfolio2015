@@ -1,0 +1,370 @@
+<!--
+
+live
+phone
+needles
+waves
+
+-->
+
+<!DOCTYPE_html>
+<html>
+    <style>
+        body{
+            font-family: Baskerville, "Baskerville Old Face";
+        }
+        #navigation{
+            text-align: center;
+        }
+        #navigation img{
+            width: 50%;
+        }
+        #navigation a{
+            text-decoration: none;
+            font-size: 1.7vw;
+            padding-left: 1.5vw;
+            padding-right: 1.5vw;
+            color: black;
+        }
+        h2, h3{font-weight: normal;}
+        .title{
+            font-size: 2.5vw;
+        }
+        .songs img{
+        width: 2vw;
+        padding-right: 0.5vw;
+    }
+        .subTitle{
+            font-size: 1.5vw;
+            text-align: left;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(window).scroll(function(){
+    $("#navigation").css("opacity", 1 - $(window).scrollTop() / 150);
+        $("#startDiv").css("opacity", 2 - $(window).scrollTop() / 150);
+        $("#space1").css("opacity", 2 - $(window).scrollTop() / 150);
+        $("#songPrev1").css("opacity", 3 - $(window).scrollTop() / 150);
+        $("#space2").css("opacity", 5 - $(window).scrollTop() / 150);
+        $("#songPrev2").css("opacity", 6 - $(window).scrollTop() / 150);
+        $("#space3").css("opacity", 8 - $(window).scrollTop() / 150);
+        $("#songPrev3").css("opacity", 9 - $(window).scrollTop() / 150);
+        $("#space4").css("opacity", 11 - $(window).scrollTop() / 150);
+        $("#songPrev4").css("opacity", 12 - $(window).scrollTop() / 150);
+        $("#endDiv").css("opacity", 14 - $(window).scrollTop() / 150);
+  });
+    </script>
+    
+<body>
+    <div id="navigation">
+        <a href="home.html"><img src="logoText.png"></a><br>
+        <a href="home.html">HOME</a>
+        <a href="music.html">MUSIC</a>
+        <a><strike>MERCH</strike></a>
+        <br>
+        <img style="padding-top:0.3vw;" src="lines.png">
+    </div>
+    
+    
+    
+    <div id="space1" style="height:7vw; margin-top:-0.4vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <div id="songPrev1" style="height:27vw;">
+        <div id="red">
+            <div style="height:100%; width:80%; float:right;">
+                <div style="position:relative; top:30%;">
+            <div class="songs"><span class="title">LIVE AT 71</span></div>
+                    <div style="text-align:left; padding-left:7.5vw;">
+                    <div class="songs"><a id="she" location="Songs/She%20(Live).m4a" onclick="control(this)"><img style="width:1.2vw" src="Icons/play.png"></a><span class="subTitle">She (Live)</span></div>
+                    <div class="songs"><a id="birds" location="Songs/Birds%20in%20a%20Storm%20(Live).m4a" onclick="control(this)"><img style="width:1.2vw" src="Icons/play.png"></a><span class="subTitle">Birds in a Storm (Live)</span></div>
+                    <div class="songs"><a id="home" location="Songs/Coming%20Home%20(Live).m4a" onclick="control(this)"><img style="width:1.2vw" src="Icons/play.png"></a><span class="subTitle">Coming Home (Live)</span></div>
+                    <div class="songs"><a id="phonesLive" location="Songs/Put%20Down%20Your%20Phones%20(Live).m4a" onclick="control(this)"><img style="width:1.2vw" src="Icons/play.png"></a><span class="subTitle">Put Down Your Phones (Live)</span></div>
+            </div>
+            <h3 style="font-size:1.2vw;">Released 2018</h3>
+            </div>
+    </div>
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        <div style="width:100%; height:0.3vw; background-color:black; position:relative; top:50%;"></div>
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"><img style='height:100%;' src="Live%20At%2071.jpg"></div>
+    </div>
+    
+    
+    <div id="space2" style="height:10vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <div id="songPrev2" style="height:27vw;">
+        <div id="purple"><img style='height:100%; padding-left:10vw;' src="Phones.jpg"></div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        <div style="width:100%; height:0.3vw; background-color:black; position:relative; top:50%;"></div>
+        </div>
+    </div>
+        <div id="red">
+            <div style="height:100%; width:60%; float:left; padding-left:10%;">
+                <div style="position:relative; top:30%;">
+            <div class="songs"><a id="phones" location="Songs/Put%20Down%20Your%20Phones.m4a" onclick="control(this)"><img src="Icons/play.png"></a><span class="title">PUT DOWN YOUR PHONES</span></div>
+            <h3 style="font-size:1.2vw;">Released 2017</h3>
+            <a></a>
+            </div>
+    </div>
+        </div>
+    </div>
+    
+    
+    <div id="space3" style="height:10vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    
+    
+    
+    
+    <div id="songPrev3" style="height:27vw;">
+        <div id="red">
+            <div style="height:100%; width:60%; float:right; padding-right:10%;">
+                <div style="position:relative; top:30%;">
+            <div class="songs"><a id="needles" location="Songs/Needles.m4a" onclick="control(this)"><img src="Icons/play.png"></a><span class="title">NEEDLES</span></div>
+            <h3 style="font-size:1.2vw;">Released 2017</h3>
+            <a></a>
+            </div>
+    </div>
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        <div style="width:100%; height:0.3vw; background-color:black; position:relative; top:50%;"></div>
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"><img src="Needles.jpg" style="height:100%;"></div>
+    </div>
+    
+    
+    <div id="space4" style="height:12vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    
+    
+    <div id="songPrev4" style="height:27vw;">
+        <div id="purple"><img style='height:100%; padding-left:10vw;' src="The%20Waves.jpg"></div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        <div style="width:100%; height:0.3vw; background-color:black; position:relative; top:50%;"></div>
+        </div>
+    </div>
+        <div id="red">
+            <div style="height:100%; width:60%; float:left; padding-left:10%;">
+                <div style="position:relative; top:30%;">
+            <div class="songs"><a id="waves" location="Songs/The%20Waves.m4a" onclick="control(this)"><img src="Icons/play.png"></a><span class="title">THE WAVES</span></div>
+            <h3 style="font-size:1.2vw;">Released 2017</h3>
+            <a></a>
+            </div>
+    </div>
+        </div>
+    </div>
+    
+    
+    <div id="space5" style="height:12vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="border:1.5px solid black; width:1%; float:left; height:100%; background-color:black;"></div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    <div id="endDiv" style="height:0.1vw;">
+     <div id="red">
+            
+        </div>
+    <div id="blue">
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+        <div style="float:left; width:48.5%; height:100%;">
+        </div>
+    </div>
+        <div id="purple"></div>
+    </div>
+    
+    <center><img style="padding-top:0vw; padding-bottom:0.2vw; margin-top:-0.2vw; width:50%;" src="linesBottom.png"></center>
+    <div style="text-align:center;">
+    <a style="color:black; text-decoration:none;" href="javascript:var a = confirm('You are about to be redirected to your email application'); if(a == true){window.location.href = 'mailto:liamhanniganmusic@outlook.com'}">liamhanniganmusic@outlook.com</a>
+    </div>
+    
+<audio id="audio">
+    <source id="audioSource" src=""/>
+    Your browser does not support the audio format.
+</audio>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </body>    
+    <style>
+        #blue{
+            width: 20%;
+            float: left;
+            height: 100%;
+        }
+        #red{
+            width: 40%;
+            float: left;
+            text-align: center;
+            height: 100%;
+        }
+        #purple{
+            width: 40%;
+            float: left;
+            height: 100%;
+        }
+        
+    </style>
+</html>
+
+<script>
+    var audioStatus;
+    var currentSong;
+
+    function resetButtons() {
+        document.getElementById('phones').innerHTML = '<img src="Icons/play.png">';
+        document.getElementById('needles').innerHTML = '<img src="Icons/play.png">';
+        document.getElementById('waves').innerHTML = '<img src="Icons/play.png">';
+        document.getElementById('she').innerHTML = '<img style="width:1.2vw;" src="Icons/play.png">';
+        document.getElementById('home').innerHTML = '<img style="width:1.2vw;" src="Icons/play.png">';
+        document.getElementById('birds').innerHTML = '<img style="width:1.2vw;" src="Icons/play.png">';
+        document.getElementById('phonesLive').innerHTML = '<img style="width:1.2vw;" src="Icons/play.png">';
+    }
+
+    function control(e) {
+        if (currentSong == e.getAttribute('id')) {
+            if (audioStatus == true) {
+                pauseMusic();
+                if (e.getAttribute('id') == 'phones' || e.getAttribute('id') == 'needles' || e.getAttribute('id') == 'waves') {
+                    e.innerHTML = '<img src="Icons/play.png">';
+                } else {
+                    e.innerHTML = '<img style="width:1.2vw;" src="Icons/play.png">';
+                }
+            } else {
+                playMusic();
+                if (e.getAttribute('id') == 'phones' || e.getAttribute('id') == 'needles' || e.getAttribute('id') == 'waves') {
+                    e.innerHTML = '<img src="Icons/pause.png">';
+                } else {
+                    e.innerHTML = '<img style="width:1.2vw;" src="Icons/pause.png">';
+                }
+            }
+        } else {
+            resetButtons();
+            changeMusic(e);
+        }
+    }
+
+    function changeMusic(e) {
+
+        var audio = document.getElementById('audio');
+
+        var source = document.getElementById('audioSource');
+        source.src = e.getAttribute('location');
+
+        audio.load(); //call this to just preload the audio without playing
+        audio.play(); //call this to play the song right away
+        audioStatus = true;
+        currentSong = e.getAttribute('id');
+        if (currentSong == 'phones'|| currentSong == 'needles' || currentSong == 'waves') {
+                    e.innerHTML = '<img src="Icons/pause.png">';
+                } 
+        else {
+                    e.innerHTML = '<img style="width:1.2vw;" src="Icons/pause.png">';
+                }
+        
+    }
+
+    function playMusic() {
+        audio.play();
+        audioStatus = true;
+    }
+
+    function pauseMusic() {
+        audio.pause();
+        audioStatus = false;
+    }
+</script>

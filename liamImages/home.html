@@ -1,0 +1,219 @@
+<!DOCYTYPE_html>
+<html>
+    <style>
+        body{
+            font-family: Baskerville, "Baskerville Old Face";
+        }
+        #navigation{
+            text-align: center;
+        }
+        #navigation img{
+            width: 50%;
+        }
+        #navigation a{
+            text-decoration: none;
+            font-size: 1.7vw;
+            padding-left: 1.5vw;
+            padding-right: 1.5vw;
+            color: black;
+        }
+        p{
+            padding-left: 17vw;
+            padding-right: 17vw;
+            text-align: center;
+        }
+    </style>
+<body>
+    <div id="navigation">
+        <a href="home.html"><img src="logoText.png"></a><br>
+        <a href="home.html">HOME</a>
+        <a href="music.html">MUSIC</a>
+        <a><strike>MERCH</strike></a>
+        <br>
+        <img style="padding-top:0.3vw;" src="Line.png">
+    </div>
+    <br>
+    <center><iframe width="60%" height="60%" src="https://www.youtube.com/embed/mu5jyEyhYMw?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    <br>
+    <p>
+        Hannigan is a singer-songwriter inspired by the changing world around him. Drawing lyrics from his surroundings he is able to deliver a unique style of story telling that he has mastered over a number of years. Taking inspiration from artists such as Paolo Nutini, Passenger and Hozier to name a few, he has created a sound that can only be defined as his own.<br><br>
+        Early in 2017, upon moving to Cornwall The Waves was given the support of BBC Introducing Cornwall. <br><br>
+        After moving to Falmouth, Cornwall and leaving his band in Kent, he found himself drifting further away from the electric style of recording he had previously aspired to in his 2017 work, and evolved once again into a solo acoustic artist. <br><br>
+        This regained love for acoustic folk music lead him to his most recent recorded work, a live acoustic EP named Live at 71. Recorded and mastered by Chris Delaney, Live at 71 was a project to show Hannigan's ever-evolving style of songwriting and an accurate representation of his live performance in 2018. </p>
+    <br>
+    <div style="text-align:center">
+    </div>
+    
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+.mySlides {display: none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 900px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="Images/Slides/CT6A0996.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="Images/Slides/CT6A1004.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="Images/Slides/CT6A1208.jpg" style="width:100%">
+</div>
+    
+    <div class="mySlides fade">
+  <img src="Images/Slides/CT6A2170.jpg" style="width:100%">
+</div>
+    
+    <div class="mySlides fade">
+  <img src="Images/Slides/CT6A2247.jpg" style="width:100%">
+</div>
+    
+<div class="mySlides fade">
+  <img src="Images/Slides/H3.jpg" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+    
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+    <center><img style="-webkit-transform: scaleY(-1); transform: scaleY(-1); padding-top:0vw; padding-bottom:0.4vw; margin-top:-0.2vw; width:50%;" src="linesBottom.png"></center>
+    <div style="text-align:center;">
+    <div style="text-align:center;">
+    <a style="color:black; padding-top:0.3vw; text-decoration:none;" href="javascript:var a = confirm('You are about to be redirected to your email application'); if(a == true){window.location.href = 'mailto:liamhanniganmusic@outlook.com'}">liamhanniganmusic@outlook.com</a>
+    </div>
+    
+</body>
+    
+    
+</body>
+</html>

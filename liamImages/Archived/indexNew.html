@@ -1,0 +1,68 @@
+<div class="songs"><a id="caught" location="Caught%20Their%20Eyes.mp3" onclick="control(this)"><img src="play.png"></a><span>Caught Their Eyes</span></div>
+<br>
+<div class="songs"><a id="4;44" location="4;44.mp3" onclick="control(this)"><img src="play.png"></a>4;44</div>
+<br>
+
+<audio id="audio">
+    <source id="audioSource" src="" />
+    Your browser does not support the audio format.
+</audio>
+<style>
+    html {
+        font-size: 30px;
+    }
+    .songs img{
+        width: 30px;
+        padding-right: 5px;
+    }
+</style>
+
+<script>
+    var audioStatus;
+    var currentSong;
+
+    function resetButtons() {
+        document.getElementById('caught').innerHTML = '<img src="play.png">';
+        document.getElementById('4;44').innerHTML = '<img src="play.png">';
+
+    }
+
+    function control(e) {
+        if (currentSong == e.getAttribute('id')) {
+            if (audioStatus == true) {
+                pauseMusic();
+                e.innerHTML = '<img src="play.png">';
+            } else {
+                playMusic();
+                e.innerHTML = '<img src="pause.png">';
+            }
+        } else {
+            resetButtons();
+            changeMusic(e);
+        }
+    }
+
+    function changeMusic(e) {
+
+        var audio = document.getElementById('audio');
+
+        var source = document.getElementById('audioSource');
+        source.src = e.getAttribute('location');
+
+        audio.load(); //call this to just preload the audio without playing
+        audio.play(); //call this to play the song right away
+        audioStatus = true;
+        currentSong = e.getAttribute('id');
+        e.innerHTML = '<img src="pause.png">';
+    }
+
+    function playMusic() {
+        audio.play();
+        audioStatus = true;
+    }
+
+    function pauseMusic() {
+        audio.pause();
+        audioStatus = false;
+    }
+</script>
