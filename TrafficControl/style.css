@@ -1,0 +1,249 @@
+
+        :root { 
+            --Lights-Horizontal : rgba(58,174,89, 0.6);
+            --Lights-Vertical : rgba(255,0,0, 0.6);
+            
+            --left-position-left: -10%;
+            --left-position-top: -10%;
+            --left-position-left0: 0%;
+            --left-position-left1: 0%;
+            --left-position-left2: 0%;
+            --left-position-left3: 0%;
+            --left-position-left4: 0%;
+            --left-position-top0: 0%;
+            --left-position-top1: 0%;
+            --left-position-top2: 0%;
+            --left-position-top3: 0%;
+            --left-position-top4: 0%;
+            
+            
+            --right-position-left: 0%;
+            --right-position-top: 0%;
+            --right-position-left0: 0%;
+            --right-position-left1: 0%;
+            --right-position-left2: 0%;
+            --right-position-left3: 0%;
+            --right-position-left4: 0%;
+            --right-position-top0: 0%;
+            --right-position-top1: 0%;
+            --right-position-top2: 0%;
+            --right-position-top3: 0%;
+            --right-position-top4: 0%;
+            
+            --top-position-left: 0%;
+            --top-position-top: 0%;
+            --top-position-left0: 0%;
+            --top-position-left1: 0%;
+            --top-position-left2: 0%;
+            --top-position-left3: 0%;
+            --top-position-left4: 0%;
+            --top-position-top0: 0%;
+            --top-position-top1: 0%;
+            --top-position-top2: 0%;
+            --top-position-top3: 0%;
+            --top-position-top4: 0%;
+            
+            --bottom-position-left: 0%;
+            --bottom-position-top: 0%;
+            --bottom-position-left0: 0%;
+            --bottom-position-left1: 0%;
+            --bottom-position-left2: 0%;
+            --bottom-position-left3: 0%;
+            --bottom-position-left4: 0%;
+            --bottom-position-top0: 0%;
+            --bottom-position-top1: 0%;
+            --bottom-position-top2: 0%;
+            --bottom-position-top3: 0%;
+            --bottom-position-top4: 0%;
+        }
+        body{
+            background-color: black;
+            height: 100%; 
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #353535;
+        }
+        
+        .BackGroundImg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        
+        #Crossroad{
+            position: absolute;
+            width: 100%;
+            top: 50%;
+        }
+        
+        .Road{
+            padding-top: 20px;
+            float:left;
+            height: 2%; 
+            position: relative; 
+            background-color:grey;
+            border-right: 2px solid black;
+        }
+        
+        .Car{
+            //background-color: red;
+            border-radius: 10px;
+            left: -10%;
+            width: 4%;
+            height: 3%;
+            position: absolute;
+        }
+        
+.TrafficLight{
+    height: 0.4%;
+    width: 0.2%;
+    border-radius: 50%; 
+    z-index:2; 
+    position: absolute;
+}
+        
+/* ================     LEFT DRIVE   ================= */
+
+        @keyframes LeftDriveComplete{
+          0%   {left:11%; top:110%;}
+          100%  {left:100%; top: 18.5%;}
+        }
+        @keyframes LeftDriveFirstPart{
+          0%   {left:11%; top:110%;}
+          100%  {left:var(--left-position-left); top:var(--left-position-top);}
+        }
+        @keyframes LeftDriveSecondPart0{
+          0%   {left: var(--left-position-left0); top: var(--left-position-top0);}
+          100%  {left: 124%; top: -5.5%;}
+        }
+        @keyframes LeftDriveSecondPart1{
+          0%   {left: var(--left-position-left1); top: var(--left-position-top1);}
+          5%   {left: var(--left-position-left1); top: var(--left-position-top1);}
+          100%  {left: 120%; top: -1.5%;}
+        }
+        @keyframes LeftDriveSecondPart2{
+          0%   {left: var(--left-position-left2); top: var(--left-position-top2);}
+          10%   {left: var(--left-position-left2); top: var(--left-position-top2);}
+          100%  {left: 116%; top: 3.5%;}
+        }
+        @keyframes LeftDriveSecondPart3{
+          0%   {left: var(--left-position-left3); top: var(--left-position-top3);}
+          15%   {left: var(--left-position-left3); top: var(--left-position-top3);}
+          100%  {left: 112%; top: 7.5%;}
+        }
+        @keyframes LeftDriveSecondPart4{
+          0%   {left: var(--left-position-left4); top: var(--left-position-top4);}
+          20%   {left: var(--left-position-left4); top: var(--left-position-top4);}
+          100%  {left: 108%; top: 11.5%;}
+        }
+
+/* ================     RIGHT DRIVE   ================= */
+
+        @keyframes RightDriveComplete{
+          0%  {left:100%; top: 21.5%;}
+          100%  {left:11%; top: 113.5%;}
+        }
+        @keyframes RightDriveFirstPart{
+          0%   {left:100%; top:21.5%;}
+            100%  {left:var(--right-position-left); top:var(--right-position-top);}
+        }
+        @keyframes RightDriveSecondPart0{
+          0%   {left: var(--right-position-left0); top: var(--right-position-top0);}
+          100%  {left: -5%; top: 129.5%;}
+        }
+        @keyframes RightDriveSecondPart1{
+          0%   {left: var(--right-position-left1); top: var(--right-position-top1);}
+          5%   {left: var(--right-position-left1); top: var(--right-position-top1);}
+          100%  {left:-1%; top: 125.5%;}
+        }
+        @keyframes RightDriveSecondPart2{
+          0%   {left: var(--right-position-left2); top: var(--right-position-top2);}
+          10%   {left: var(--right-position-left2); top: var(--right-position-top2);}
+          100%  {left:3%; top: 121.5%;}
+        }
+        @keyframes RightDriveSecondPart3{
+          0%   {left: var(--right-position-left3); top: var(--right-position-top3);}
+          15%   {left: var(--right-position-left3); top: var(--right-position-top3);}
+          100%  {left:7%; top: 117.5%;}
+        }
+        @keyframes RightDriveSecondPart4{
+          0%   {left: var(--right-position-left4); top: var(--right-position-top4);}
+          20%   {left: var(--right-position-left4); top: var(--right-position-top4);}
+          100%  {left:11%; top: 113.5%;}
+        }
+
+
+/* ================     TOP DRIVE   ================= */
+
+        @keyframes TopDriveComplete{
+          0%  {left:-10%; top: 12.5%;}
+          100%  {left:89%; top: 113.5%;}
+        }
+        @keyframes TopDriveFirstPart{
+          0%   {left:-10%; top:12.5%;}
+            100%  {left:var(--top-position-left); top:var(--top-position-top);}
+        }
+        
+        @keyframes TopDriveSecondPart0{
+          0%   {left: var(--top-position-left0); top: var(--top-position-top0);}
+          100%  {left:105%; top: 129.5%;}
+        }
+        @keyframes TopDriveSecondPart1{
+          0%   {left: var(--top-position-left1); top: var(--top-position-top1);}
+          5%   {left: var(--top-position-left1); top: var(--top-position-top1);}
+          100%  {left:101%; top: 125.5%;}
+        }
+        @keyframes TopDriveSecondPart2{
+          0%   {left: var(--top-position-left2); top: var(--top-position-top2);}
+          10%   {left: var(--top-position-left2); top: var(--top-position-top2);}
+          100%  {left:97%; top: 121.5%;}
+        }
+        @keyframes TopDriveSecondPart3{
+          0%   {left: var(--top-position-left3); top: var(--top-position-top3);}
+          15%   {left: var(--top-position-left3); top: var(--top-position-top3);}
+          100%  {left:93%; top: 117.5%;}
+        }
+        @keyframes TopDriveSecondPart4{
+          0%   {left: var(--top-position-left4); top: var(--top-position-top4);}
+          20%   {left: var(--top-position-left4); top: var(--top-position-top4);}
+          100%  {left:89%; top: 113.5%;}
+        }
+
+/* ================     BOTTOM DRIVE   ================= */
+
+        @keyframes BottomDriveComplete{
+          0%  {left:85%; top: 113.5%;}
+          100%  {left:-4%; top: 22.5%;}
+        }
+        @keyframes BottomDriveFirstPart{
+          0%  {left:85%; top: 113.5%;}
+            100%  {left:var(--bottom-position-left); top:var(--bottom-position-top);}
+        }
+
+        @keyframes BottomDriveSecondPart0{
+          0%   {left: var(--bottom-position-left0); top: var(--bottom-position-top0);}
+          100%  {left:-20%; top: 6.5%;}
+        }
+        @keyframes BottomDriveSecondPart1{
+          0%   {left: var(--bottom-position-left1); top: var(--bottom-position-top1);}
+          5%   {left: var(--bottom-position-left1); top: var(--bottom-position-top1);}
+          100%  {left:-16%; top: 10.5%;}
+        }
+        @keyframes BottomDriveSecondPart2{
+          0%   {left: var(--bottom-position-left2); top: var(--bottom-position-top2);}
+          10%   {left: var(--bottom-position-left2); top: var(--bottom-position-top2);}
+          100%  {left:-12%; top: 14.5%;}
+        }
+        @keyframes BottomDriveSecondPart3{
+          0%   {left: var(--bottom-position-left3); top: var(--bottom-position-top3);}
+          15%   {left: var(--bottom-position-left3); top: var(--bottom-position-top3);}
+          100%  {left:-8%; top: 18.5%;}
+        }
+        @keyframes BottomDriveSecondPart4{
+          0%   {left: var(--bottom-position-left4); top: var(--bottom-position-top4);}
+          20%   {left: var(--bottom-position-left4); top: var(--bottom-position-top4);}
+          100%  {left:-4%; top: 22.5%;}
+        }
