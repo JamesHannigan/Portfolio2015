@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>James Hannigan - Web Design and Development</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/ed96f559b9.js" crossorigin="anonymous"></script>
+       
+       <link rel="stylesheet" type="text/css" href="TrafficControl/style.css">
+       
+       <script>
+           var HorizontalLightsStatusGreen = true;
+           var SecondCounter = 0;
+           
+           var LeftCarsWaiting = [];
+           var CreateLeftCarsStatus = true;
+           
+           var RightCarsWaiting = [];
+           var CreateRightCarsStatus = true;
+           
+           var TopCarsWaiting = [];
+           var CreateTopCarsStatus = true;
+           
+           var BottomCarsWaiting = [];
+           var CreateBottomCarsStatus = true;
+           
+           function RunSetUp(){
+               
+               if(SecondCounter == 12){
+                   ChangeLights('toggle');
+               }
+               
+               if(Number.isInteger(SecondCounter/2)){
+               
+               var RandomDirectionChoice = Math.floor(Math.random() * 4);
+                   
+                if(CreateLeftCarsStatus && RandomDirectionChoice == 0){
+                   CreateLeftCar();
+                }
+                else if(CreateRightCarsStatus && RandomDirectionChoice == 1){
+                   CreateRightCar();
+                }
+                else if(CreateTopCarsStatus && RandomDirectionChoice == 2){
+                   CreateTopCar();
+           }
+                else if(CreateBottomCarsStatus && RandomDirectionChoice == 3){
+                   CreateBottomCar();
+           }
+               }
+               SecondCounter++;
+           }
+           
+           function CreateLeftCar(){
+               var Road = document.getElementById('body');
+               var Car = document.createElement('div');
+               Car.classList.add('Car');
+               Car.id = 'Car' + Math.ceil(Math.random() * 100000);
+               Car.innerHTML = '<img src="TrafficControl/Images/Car/' + Math.floor(Math.random() * 4) + 'Left.png" width="100%;">';
+               Road.appendChild(Car);
+               
+               if(HorizontalLightsStatusGreen){
+                   Car.style.animation = 'LeftDriveComplete 5s 1';
+                   Car.style.animationTimingFunction = "linear";    
+               }   
+               else{
+                   var NextCarPositionLeft = 40.5-(LeftCarsWaiting.length*4);
+                   var NextCarPositionTop = 79.8+(LeftCarsWaiting.length*4);
+                   console.log(NextCarPositionLeft + ' ___ ' + NextCarPositionTop);
+                   document.documentElement.style.setProperty('--left-position-left', NextCarPositionLeft + '%');
+                   document.documentElement.style.setProperty('--left-position-top', NextCarPositionTop + '%');
+                   Car.style.animation = 'LeftDriveFirstPart 2s 1';
+                   Car.style.animationTimingFunction = "ease-out";
+                   Car.style.left = NextCarPositionLeft + "%";
+                   Car.style.top = NextCarPositionTop + "%";
+                   LeftCarsWaiting.push(Car.id);
+                   if(LeftCarsWaiting.length >= 4){CreateLeftCarsStatus = false;}
+               }   
+           }
+           
+           function CreateRightCar(){
+               var Road = document.getElementById('body');
+               var Car = document.createElement('div');
+               Car.classList.add('Car');
+               Car.id = 'Car' + Math.ceil(Math.random() * 100000);
+               Car.innerHTML = '<img src="TrafficControl/Images/Car/' + Math.floor(Math.random() * 4) + 'Right.png" width="100%;">';
+               Road.appendChild(Car);
+               
+               if(HorizontalLightsStatusGreen){
+                   Car.style.animation = 'RightDriveComplete 5s 1';
+                   Car.style.animationTimingFunction = "linear";
+               }   
+               else{
+                   var NextCarPositionLeft = 55.5+(RightCarsWaiting.length*4);
+                   var NextCarPositionTop = 67.5-(RightCarsWaiting.length*4);
+                   document.documentElement.style.setProperty('--right-position-left', NextCarPositionLeft + '%');
+                   document.documentElement.style.setProperty('--right-position-top', NextCarPositionTop + '%');
+                   Car.style.animation = 'RightDriveFirstPart 2s 1';
+                   Car.style.animationTimingFunction = "ease-out";
+                   Car.style.left = NextCarPositionLeft + "%";
+                   Car.style.top = NextCarPositionTop + "%";
+                   RightCarsWaiting.push(Car.id);
+                   if(RightCarsWaiting.length >= 4){CreateLeftCarsStatus = false;}
+               }   
+           }
+           
+           function CreateTopCar(){
+               var Road = document.getElementById('body');
+               var Car = document.createElement('div');
+               Car.classList.add('Car');
+               //Car.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+               Car.id = 'Car' + Math.ceil(Math.random() * 100000);
+               Car.innerHTML = '<img src="TrafficControl/Images/Car/' + Math.floor(Math.random() * 4) + 'Top.png" width="100%;">';
+               Road.appendChild(Car);
+               
+               if(HorizontalLightsStatusGreen == false){
+                   Car.style.animation = 'TopDriveComplete 5s 1';
+                   Car.style.animationTimingFunction = "linear";
+               }   
+               else{
+                   var NextCarPositionLeft = 42.5 - (TopCarsWaiting.length*4);
+                   var NextCarPositionTop = 66 - (TopCarsWaiting.length*4);
+                   document.documentElement.style.setProperty('--top-position-left', NextCarPositionLeft + '%');
+                   document.documentElement.style.setProperty('--top-position-top', NextCarPositionTop + '%');
+                   Car.style.animation = 'TopDriveFirstPart 2s 1';
+                   Car.style.animationTimingFunction = "ease-out";
+                   Car.style.left = NextCarPositionLeft + "%";
+                   Car.style.top = NextCarPositionTop + "%";
+                   TopCarsWaiting.push(Car.id);
+                   if(TopCarsWaiting.length >= 4){CreateTopCarsStatus = false;}
+               }   
+           }
+           
+           function CreateBottomCar(){
+               var Road = document.getElementById('body');
+               var Car = document.createElement('div');
+               Car.classList.add('Car');
+               Car.id = 'Car' + Math.ceil(Math.random() * 100000);
+               Car.innerHTML = '<img src="TrafficControl/Images/Car/' + Math.floor(Math.random() * 4) + 'Bottom.png" width="100%;">';
+               Road.appendChild(Car);
+               
+               if(HorizontalLightsStatusGreen == false){
+                   Car.style.animation = 'BottomDriveComplete 5s 1';
+                   Car.style.animationTimingFunction = "linear";
+               }   
+               else{
+                   var NextCarPositionLeft = 54 + (BottomCarsWaiting.length*4);
+                   var NextCarPositionTop = 81.5 + (BottomCarsWaiting.length*4);
+                   document.documentElement.style.setProperty('--bottom-position-left', NextCarPositionLeft + '%');
+                   document.documentElement.style.setProperty('--bottom-position-top', NextCarPositionTop + '%');
+                   Car.style.animation = 'BottomDriveFirstPart 2s 1';
+                   Car.style.animationTimingFunction = "ease-out";
+                   Car.style.left = NextCarPositionLeft + "%";
+                   Car.style.top = NextCarPositionTop + "%";
+                   BottomCarsWaiting.push(Car.id);
+                   if(BottomCarsWaiting.length >= 4){CreateBottomCarsStatus = false;}
+               }   
+           }
+           
+           function LeftCarsContinue(){
+               for(var i = 0; i < LeftCarsWaiting.length; i++){
+                   var Car = document.getElementById(LeftCarsWaiting[i]);
+                   document.documentElement.style.setProperty('--left-position-left'+i, Car.style.left);
+                   document.documentElement.style.setProperty('--left-position-top'+i, Car.style.top);
+                   Car.style.animation = 'LeftDriveSecondPart' + i + ' 5s 1';
+                   Car.style.animationTimingFunction = "ease-in";
+                       Car.style.left = "100%";
+               }
+               LeftCarsWaiting = [];
+               CreateLeftCarsStatus = true;
+           }
+           
+           function RightCarsContinue(){
+               for(var i = 0; i < RightCarsWaiting.length; i++){
+                   var Car = document.getElementById(RightCarsWaiting[i]);
+                   document.documentElement.style.setProperty('--right-position-left'+i, Car.style.left);
+                   document.documentElement.style.setProperty('--right-position-top'+i, Car.style.top);
+                   Car.style.animation = 'RightDriveSecondPart' + i + ' 5s 1';
+                   Car.style.animationTimingFunction = "ease-in";
+                       Car.style.left = "100%";
+               }
+               RightCarsWaiting = [];
+               CreateRightCarsStatus = true;
+           }
+           
+           function TopCarsContinue(){
+               for(var i = 0; i < TopCarsWaiting.length; i++){
+                   var Car = document.getElementById(TopCarsWaiting[i]);
+                   document.documentElement.style.setProperty('--top-position-left'+i, Car.style.left);
+                   document.documentElement.style.setProperty('--top-position-top'+i, Car.style.top);
+                   Car.style.animation = 'TopDriveSecondPart' + i + ' 5s 1';
+                   Car.style.animationTimingFunction = "ease-in";
+                       Car.style.left = "100%";
+               }
+               TopCarsWaiting = [];
+               CreateTopCarsStatus = true;
+           }
+           
+           function BottomCarsContinue(){
+               for(var i = 0; i < BottomCarsWaiting.length; i++){
+                   var Car = document.getElementById(BottomCarsWaiting[i]);
+                   document.documentElement.style.setProperty('--bottom-position-left'+i, Car.style.left);
+                   document.documentElement.style.setProperty('--bottom-position-top'+i, Car.style.top);
+                   Car.style.animation = 'BottomDriveSecondPart' + i + ' 5s 1';
+                   Car.style.animationTimingFunction = "ease-in";
+                       Car.style.left = "100%";
+               }
+               BottomCarsWaiting = [];
+               CreateBottomCarsStatus = true;
+           }
+           
+           function ChangeLights(colour){
+               var SkipChange = true;
+               if(colour == 'toggle' || colour == 'green' && HorizontalLightsStatusGreen == false || colour == 'red' && HorizontalLightsStatusGreen == true){
+                    SkipChange = false;   
+               }
+               
+               if(SkipChange == false){
+                   SecondCounter = 0;
+               if(HorizontalLightsStatusGreen == false){
+                   document.documentElement.style.setProperty('--Lights-Horizontal', 'rgba(255,255,0, 0.6)');
+                   document.documentElement.style.setProperty('--Lights-Vertical', 'rgba(255,255,0, 0.6)');
+                   document.getElementById('LeftTrafficLight').style.top = '73.9%';
+                   document.getElementById('BottomTrafficLight').style.top = '78.2%';
+                   
+                       HorizontalLightsStatusGreen = true;
+                   
+                   setTimeout(function(){ 
+                   document.documentElement.style.setProperty('--Lights-Horizontal', 'rgba(58,174,89, 0.6)');
+                   document.documentElement.style.setProperty('--Lights-Vertical', 'rgba(255,0,0, 0.6)');
+                   document.getElementById('LeftTrafficLight').style.top = '74.4%';
+                   document.getElementById('BottomTrafficLight').style.top = '77.8%';
+                    }, 3000);
+                   LeftCarsContinue();
+                   RightCarsContinue();
+               }
+               else{
+                   document.documentElement.style.setProperty('--Lights-Horizontal', 'rgba(255,255,0, 0.6)');
+                   document.documentElement.style.setProperty('--Lights-Vertical', 'rgba(255,255,0, 0.6)');
+                   document.getElementById('LeftTrafficLight').style.top = '73.9%';
+                   document.getElementById('BottomTrafficLight').style.top = '78.2%';
+                   
+                       HorizontalLightsStatusGreen = false;
+                   
+                   setTimeout(function(){ 
+                   document.documentElement.style.setProperty('--Lights-Vertical', 'rgba(58,174,89, 0.6)');
+                   document.documentElement.style.setProperty('--Lights-Horizontal', 'rgba(255,0,0, 0.6)');
+                   document.getElementById('LeftTrafficLight').style.top = '73.4%';
+                   document.getElementById('BottomTrafficLight').style.top = '78.8%';
+                   }, 3000);
+                   TopCarsContinue();
+                   BottomCarsContinue();
+               }
+               }
+           }
+           
+       </script>
+       
+    </head>
+    <body id="body">
+        <img src="TrafficControl/Images/NoLeftBuildings.png" class="BackGroundImg">
+        <img src="TrafficControl/Images/OnlyLeftBuildings.png" class="BackGroundImg" style="z-index:1">
+        
+        <!--<a class="btn btn-success" id="BtnLights" style="z-index:1; position:absolute; right:0" onclick="ChangeLights('toggle')">Change the lights</a>-->
+        
+        <div id="LeftTrafficLight" class="TrafficLight" style="box-shadow: -6px 4px 15px 12px var(--Lights-Horizontal); background-color: var(--Lights-Horizontal); top:74.4%; left:43.2%; ">&nbsp;</div>
+        
+        <div id="RightTrafficLight" class="TrafficLight" style="box-shadow: 22px 4px 15px 12px var(--Lights-Horizontal); top:68.5%; left:55.5%; ">&nbsp;</div>
+        
+        <div id="TopTrafficLight" class="TrafficLight" style="box-shadow: -20px 4px 15px 12px var(--Lights-Vertical); top:64.5%; left:48%; ">&nbsp;</div>
+        
+        <div id="BottomTrafficLight" class="TrafficLight" style="box-shadow: 6px 4px 15px 12px var(--Lights-Vertical); background-color: var(--Lights-Vertical); top:77.8%; left:52.11%; ">&nbsp;</div>
+                
+    </body>
+    </html>
+<script>
+setInterval(RunSetUp, 1000);
+</script>
